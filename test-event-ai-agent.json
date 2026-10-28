@@ -1,0 +1,35 @@
+{
+  "Details": {
+    "ContactData": {
+      "Attributes": {
+        "summary": "Customer Thabo Nkosi (ID: 8505125009081, Medical Aid Number: MEM987654) inquired about claim CLM100293 from 10 May 2026 with Doctor Smith for R650.00. Claim was rejected due to insufficient funds in Day-to-Day Medical Savings Account (ERR_01). Customer has been informed of the rejection reason and explored options. Customer has now explicitly requested to speak to a human agent for further assistance, likely regarding payment arrangements or account management.",
+        "sentiment": "neutral",
+        "customerIntent": "transfer to agent"
+      },
+      "ContactId": "test-contact-123",
+      "CustomerEndpoint": {
+        "Address": "+447425162654",
+        "Type": "TELEPHONE_NUMBER"
+      },
+      "InitiationMethod": "INBOUND",
+      "Queue": {
+        "Name": "BasicQueue",
+        "ARN": "arn:aws:connect:eu-west-2:989571800624:instance/b286a3d1-0bde-477d-878d-67c3c8819aff/queue/387cec26-ec21-4d0f-b37e-c9127183663e"
+      }
+    },
+    "Parameters": {
+      "customer_name": "Thabo Nkosi",
+      "customer_email": "thabo.nkosi@example.com",
+      "customer_number": "MEM987654",
+      "subject": "Claim inquiry - Agent transfer requested",
+      "description": "Testing AI Agent Created Ticket",
+      "priority": "high",
+      "tags": "ai_agent,claim_inquiry,transfer_to_agent",
+      "type": "incident",
+      "summary": "Customer Thabo Nkosi (ID: 8505125009081, Medical Aid Number: MEM987654) inquired about claim CLM100293 from 10 May 2026 with Doctor Smith for R650.00. Claim was rejected due to insufficient funds in Day-to-Day Medical Savings Account (ERR_01). Customer has been informed of the rejection reason and explored options. Customer has now explicitly requested to speak to a human agent for further assistance, likely regarding payment arrangements or account management.",
+      "sentiment": "neutral",
+      "customerIntent": "transfer to agent"
+    }
+  },
+  "Name": "ContactFlowEvent"
+}

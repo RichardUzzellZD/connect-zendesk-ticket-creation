@@ -1,0 +1,60 @@
+{
+  "Version": "2012-10-17",
+  "Id": "key-consolepolicy-3",
+  "Statement": [
+    {
+      "Sid": "Enable IAM User Permissions",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::228449306526:root"
+      },
+      "Action": "kms:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "Connect Lex Bedrock can decrypt",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "connect.amazonaws.com",
+          "lex.amazonaws.com",
+          "bedrock.amazonaws.com"
+        ]
+      },
+      "Action": "kms:Decrypt",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:sourceAccount": "228449306526"
+        },
+        "ForAnyValue:StringEquals": {
+          "kms:EncryptionContext:SecretARN": [
+            "arn:aws:secretsmanager:eu-west-2:228449306526:secret:Deepgram_API_Token-vH2P9o",
+            "arn:aws:secretsmanager:eu-west-2:228449306526:secret:z3n-ds1-ruzzell_11_Labs_HollywoodsBets-tOqPDc"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "Allow access through AWS Secrets Manager",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*",
+        "kms:DescribeKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "secretsmanager.eu-west-2.amazonaws.com",
+          "kms:CallerAccount": "228449306526"
+        }
+      }
+    }
+  ]
+}
